@@ -10,3 +10,4 @@ class UserTypeAdmin(admin.ModelAdmin):
 admin.site.register(UserType, UserTypeAdmin)
 admin.site.register(IMUser, UserAdmin)
 admin.site.register(Cohort)
+admin.site.register(CohorMember)
