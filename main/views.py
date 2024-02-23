@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views import View
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+from main.models import ClassSchedule
+from main.serializers import ClassScheduleSerializer
+
 
 
 
@@ -26,3 +33,13 @@ class QueryView(View):
         return JsonResponse({"users": self.users})
     def post(self, request):
         return JsonResponse({"status":"done"})
+
+@api_view(["GET"])
+def fetch_class_schedule(request):
+    query_set = ClassSchedule.objects.all()
+    serializer = ClassScheduleSerializer(query_set, many=True)
+    return Response({"data": serializer.data}, status.HTTP_200_OK)
+
+@api_view(["POST"])
+def create_class_schedule(request):
+    

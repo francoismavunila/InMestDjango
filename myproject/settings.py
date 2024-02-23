@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'users',
-    "main"
+    "main",
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "myproject.urls"
+AUTH_USER_MODEL = 'users.IMUser'
 
 TEMPLATES = [
     {

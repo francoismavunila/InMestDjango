@@ -24,7 +24,11 @@ class ClassSchedule(models.Model):
     is_active = models.BooleanField(default = True)
     organizer = models.CharField(max_length = 255)
     cohort = models.ForeignKey(Cohort, on_delete = models.CASCADE)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE, null=True)
+    facilitator = models.ForeignKey(IMUser, on_delete = models.CASCADE, null = True)
     venue = models.CharField(max_length = 255)
+    date_created = models.DateField(auto_now_add = True, null = True)
+    date_modified = models.DateField(auto_now = True, null = True)
     
     def __str__(self):
         return self.title
