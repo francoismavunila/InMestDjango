@@ -42,4 +42,4 @@ def fetch_class_schedule(request):
 
 @api_view(["POST"])
 def create_class_schedule(request):
-    
+    pass
